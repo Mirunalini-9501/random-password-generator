@@ -3,11 +3,11 @@ import random
 import string
 
 # FUNCTION FOR GENERATING RANDOM PASSWORD
-def get_random_alphanumeric_string(length):
-    letters_and_digits = string.ascii_letters + string.digits
-    result_str = ''.join((random.choice(letters_and_digits) for i in range(length)))
-    print("Random alphanumeric String is:", result_str)
-
+def pass_generator(length):
+    char_set = string.ascii_letters + string.digits + string.punctuation
+    result = ''.join((random.choice(char_set) for i in range(length)))
+    return result
+    
 # MAIN FUNCTION
 print("---------------------------------------------------------")
 print("Welcome to Random password generator!")
@@ -16,7 +16,7 @@ print("---------------------------------------------------------")
 while True:
     digits = int(input("\nEnter the length for the random password (Minimum of 8 digits): "))
     if digits>=8:
-        get_random_alphanumeric_string(digits)
+        print("\nGenerated Random password is:",pass_generator(digits))
     elif digits>-1 and digits <8:
         print("\nMinimum number of length for password is 8. Please try again!")
     elif digits==-1:
