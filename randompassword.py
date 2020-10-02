@@ -1,31 +1,25 @@
-#REQIURED MODULES
-
+# REQUIRED MODULES
 import random
 import string
 
-#CODE FOR GENERATING PASSWORD
-
-print("-------------------------------------")
-print("WELCOME TO RANDOM PASSWORD GENERATOR")
-print("        --------------             ")
-print("MINIMUM LENGTH OF THE PASSWORD IS 8")
-print("        --------------             ")
-print("PRESS -1 FOR EXIT")
-print("------------------------------------")
-length = int(input("Enter the length of the password:"))
-
-def get_random_alphanumeric_string(length):
-    sample_characters = '+-/x=<>.`@&$#!%^*abcdefghijklmnoprqstuvwxyz1234567890'   #PASSWORD IS OF THIS CHARACTER RANGE
-    result_str = ''.join((random.choice(sample_characters) for i in range(length)))
-    print("Random specialcharacter String is:", result_str)
-
-#CODE FOR RESTRICTION OF LENGTH
-
-if(length>=8):
-    get_random_alphanumeric_string(length)
+# FUNCTION FOR GENERATING RANDOM PASSWORD
+def pass_generator(length):
+    char_set = string.ascii_letters + string.digits + string.punctuation
+    result = ''.join((random.choice(char_set) for i in range(length)))
+    return result
     
-elif(length> -1 and length<=8):
-    print("The minimum length must be 8\nTry Again!")
+# MAIN FUNCTION
+print("---------------------------------------------------------")
+print("Welcome to Random password generator!")
+print("Enter length as -1 to exit")
+print("---------------------------------------------------------")
+while True:
+    digits = int(input("\nEnter the length for the random password (Minimum of 8 digits): "))
+    if digits>=8:
+        print("\nGenerated Random password is:",pass_generator(digits))
+    elif digits!=-1 and digits <8:
+        print("\nMinimum number of length for password is 8. Please try again!")
+    elif digits==-1:
+        break
 
-elif(length==-1):
-    exit()
+
