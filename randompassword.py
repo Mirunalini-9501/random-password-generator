@@ -2,21 +2,28 @@
 import random
 import string
 from tkinter import *
-
+value = 0
+# FUNCTION FOR GETTING LENGTH
+def getLength():
+    global value 
+    value = length.get()
+    print (value)
 # FUNCTION FOR GENERATING RANDOM PASSWORD
 def pass_generator(length):
     char_set = string.ascii_letters + string.digits + "+-*/!~@#$%^&_?"
-    result = ''.join((random.choice(char_set) for i in range(length)))
+    result = ''.join((random.choice(char_set) for i in range(int(length))))
     return result
     
 # MAIN FUNCTION
 root = Tk()
 root.title("Random Password Generator")
-txt1 = Label(root,text = "Welcome to Random password generator!").grid(row=0,column=0)
-txt2 = Label(root,text = "Enter the length for the random password (Minimum of 8 digits)").grid(row=1,column=0)
-length = Entry(root).pack()
-length.bind("<Return>",lambda a:pass_generator(length.get()))
-length.focus()
+txt1 = Label(root,text = "Welcome to Random password generator!").pack()
+txt2 = Label(root,text = "Enter the length for the random password (Minimum of 8 digits)").pack()
+length = Entry(root)
+length.pack()
+
+calc = Button(root,text = "Calculate",width=15,command = getLength)
+calc.pack()
 #print("---------------------------------------------------------")
 #print("Welcome to Random password generator!")
 #print("Enter length as -1 to exit")
