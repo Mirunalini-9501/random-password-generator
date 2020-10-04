@@ -4,7 +4,7 @@ import string
 
 # FUNCTION FOR GENERATING RANDOM PASSWORD
 def pass_generator(length):
-    char_set = string.ascii_letters + string.digits + string.punctuation
+    char_set = string.ascii_letters + string.digits + "+-*/!~@#$%^&_?"
     result = ''.join((random.choice(char_set) for i in range(length)))
     return result
     
