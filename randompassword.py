@@ -22,17 +22,6 @@ length.pack()
 
 calc = Button(root,text = "Calculate",width=15,command = pass_generator)
 calc.pack()
-#print("---------------------------------------------------------")
-#print("Welcome to Random password generator!")
-#print("Enter length as -1 to exit")
-#print("---------------------------------------------------------")
-#while True:
-    #digits = int(input("\nEnter the length for the random password (Minimum of 8 digits): "))
-  #  if length>=8:
-   #     print("\nGenerated Random password is:",pass_generator(digits))
-    #elif length!=-1 and length<8:
-     #   print("\nMinimum number of length for password is 8. Please try again!")
-    #elif length==-1:
-     #   break
+
 
 root.mainloop()
