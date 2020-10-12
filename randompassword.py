@@ -10,7 +10,11 @@ def pass_generator():
     value = length.get()
     char_set = string.ascii_letters + string.digits + "+-*/!~@#$%^&_?"
     result = ''.join((random.choice(char_set) for i in range(int(value))))
-    print(result)
+    label = Label(root,text=str(result)).pack()
+    f = open("storedpassword.txt","w")
+    f.write(result)
+    f.close()
+    #print(result) prints the result in the output screen
 
 # MAIN FUNCTION
 root = Tk()
